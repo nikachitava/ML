@@ -42,3 +42,24 @@ print("ტექსტში არის " + str(lines_count) + " სტრი�
 print("ტექსტში არის " + str(words_count) + " სიტყვა")
 print("ტექსტში არის " + str(unique_word_count) + " უნიკალური სიტყვა")
 print("ტექსტში ყველაზე ხშირად გამოყენებული სიტყვა: " + most_common)
+
+
+
+######################################
+import re
+
+error_pattern = "error"
+
+f = open("files/text.txt", "r", encoding="utf-8")
+
+lines = f.readlines()
+
+for line in lines:
+    words_in_line = line.split()
+
+    # print("words_in_line: " + str(words_in_line))
+
+    if re.search(error_pattern, ' '.join(words_in_line), re.IGNORECASE):
+        print(' '.join(words_in_line))
+
+
